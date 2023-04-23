@@ -12,7 +12,7 @@ fuzz_target!(|data: &[u8]| {
     let lua = String::from_utf8_lossy(&data);
 
     let _ = format_code(
-        lua,
+        &lua,
         Config::default(),
         None,
         OutputVerification::None,
