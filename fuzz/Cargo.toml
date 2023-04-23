@@ -1,0 +1,28 @@
+[package]
+name = "fuzz_stylua_lib"
+version = "0.0.0"
+authors = ["Automatically generated"]
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4.0"
+stylua = { path = ".." }
+
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "fuzz_format_code_basic"
+path = "fuzz_targets/format_code_basic.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_format_code_full"
+path = "fuzz_targets/format_code_full.rs"
+test = false
+doc = false
