@@ -4,4 +4,4 @@ duration: 600
 cmds:
     - cmd: /fuzzers/fuzz_format_code_basic
 testsuite:
-    - file://corpus/lua
+    - file:///corpus/lua
