@@ -58,27 +58,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        format_code_basic_mayhemfile:
+        mayhemfile:
           - mayhem/format_code_basic.mayhemfile
-        format_code_full_mayhemfile:
           - mayhem/format_code_full.mayhemfile
 
     steps:
       - uses: actions/checkout@v3
 
-
-      - name: Start analysis for ${{ matrix.format_code_basic_mayhemfile }}
+      - name: Start analysis for ${{ matrix.mayhemfile }}
         uses: ForAllSecure/mcode-action@v1
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
-          args: --image ${{ needs.build.outputs.image }} --file ${{ matrix.format_code_basic_mayhemfile }} --duration 600
-          sarif-output: sarif
-
-      - name: Start analysis for ${{ matrix.format_code_full_mayhemfile }}
-        uses: ForAllSecure/mcode-action@v1
-        with:
-          mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
-          args: --image ${{ needs.build.outputs.image }} --file ${{ matrix.format_code_full_mayhemfile }} --duration 600
+          args: --image ${{ needs.build.outputs.image }} --file ${{ matrix.mayhemfile }} --duration 600
           sarif-output: sarif
 
       - name: Upload SARIF file(s)
