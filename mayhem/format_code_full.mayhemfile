@@ -1,0 +1,7 @@
+project: stylua
+target: format_code_full
+duration: 600
+cmds:
+    - cmd: /fuzzers/fuzz_format_code_full
+testsuite:
+    - file:///corpus/lua
